@@ -1,0 +1,28 @@
+
+Input:
+The user can input either a hexadecimal number or a binary number in the input panel. Store:
+Store the contents of the MBR register at the address specified by the contents of the MAR register.
+Store+:
+Perform a "Store" operation and increment the MAR register by one.
+Load:
+Load the memory contents of the address specified by the contents of the MAR register into the MBR register.
+IPL:
+Load “IPL.txt”.
+Single Step:
+Run a single stage (fetch/decode/execute).
+Single Instruction:
+Run one single instruction.
+Run:
+Run the emulator.
+Stop:
+Halt the machine by executing “halt” instruction
+Program1:
+This will load the contents of program1.txt for it to execute, the PC starts at 0x100.
+Click Program1, then click run, the output of the Debug GUI interface displays the command being executed, Enter numbers in the console. Due to program problems, you need to click the console keyboard input button every time the Plz Input characters are printing on the
+  
+output. And finally the result is displayed in the Console Print of the IO GUI. The final result will be arranged vertically. If there is something you don't understand, please watch the demo video.
+LD:
+Click on LD to set its data to the data in input
+Click the Print Cache button to get everything in the cache. Then, click the Refresh Cache button to refresh the cache. The CPU speed can be changed with any number and user input under the CPU HZ tab.
+ 
+ Input data in Console Input, click Console Keyboard Input, the data will be set to Console. Input data in Card Reader Input, click Card Reader Input, the data will be set to CR.
