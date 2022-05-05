@@ -1,0 +1,145 @@
+# Program starts at 0x100
+0100 0514 # Load R1 at 0x14
+0101 090C # STR R1 to 0xC
+0102 3037 # Print
+0103 3038 # Input
+0104 8493 # LDX I2 at 0x13
+0105 050C # Load R1 at 0xC
+0106 1D01 # Sub 1 from R1
+0107 090C # STR R1 to 0xC
+0108 1901 # Add 1 to R1
+0109 3980 # SOB R1 IXR2 + 0000
+010A 0440 # LDR R0 IXR1
+010B 080A # Save R0 to 0xA
+010C 1E01 # Sub 1 from R2
+010D 0A0C # Save R2 to 0xC
+010E 0414 # LDR R0 at 0x14
+010F 1011 # Add 0x11 to R0
+0110 080B # Save R0 to 0xB
+0111 0614 # LDR R2 at 0x14
+0112 1E01 # Sub 1 from R2
+0113 0A0F # Save R2 to 0xC
+0114 040A # LDR R0 at 0xA
+0115 052B # LDR R1 at at 0xB
+0116 8C7F #
+0117 042B # LDR R0 at at 0xB
+0118 140A # Sub R0 from 0xA
+0119 2C3E
+011A 142B # Sub R0 from 0xB
+011B 060C # LDR R2 at C
+011C 8CBD
+011D 080C # Save R0 at 0xC
+011E 090D # Save R1 at 0xD
+011F 0414 # LDR R0 at 0x14
+0120 1C01 # Sub 1 from R0
+0121 0814 # STR R0 at 0x14
+0122 383C
+0123 040D $ LDR R0 at 0xD
+0124 3039
+0125 040A $ LDR R0 at 0xD
+0126 3039
+# Subroutine to print "Plz input"
+0200 0B0E # Save R3 to 0x0E
+0201 0717 # Load R3 at 0x17
+0202 1B07 # Add x to R3
+0203 0B0D # Save R3 to 0x0D
+0204 848D # LDX I2 at 0x0D
+0205 0C0B # LDA R0 with 11
+0206 0610 # LDR R2 at 0x10
+0207 0A0F # STR R2 to 0x0F
+0208 844F # LDX I1 at 0x0F
+0209 0540 # LDR R1 with I1
+020A C901 # OUTPUT R1
+020B 1A01 # Add 1 to R2
+020C 3880 # SOB R0 IXR2+0000
+020D 070E # Load R3 at 0x0E
+020E 3400 # Return
+# Subroutine to take input
+0210 0B0E # Save R3 to 0x0E
+0211 0718 # Load R3 at 0x18
+0212 1B09 # Add 9 to R3
+0213 0B0D # Save R3 to 0x0D
+0214 848D # LDX I2 at 0x0D
+0215 1B10 # Add 16 to R3
+0216 1B07 # Add 7 to R3
+0217 0B0F # Save R3 to 0x0F
+0218 84CF # LDX I3 at 0x0F
+0219 CC00 # CHK keyboard store to R0
+021A 2080 # JZ R0 IXR2
+021B C400 # IN Keyboard store to R0
+021C 20C0 # JZ R0 IXR3
+021D C801 # OUT R0
+021E 0511 # LDR R1 at 0x11
+021F 110C # ADD 0xC to R1
+0220 090B # STR R1 to 0xB
+0221 844B # LDR I1 at 0xB
+0222 0540 # LDR R1 I1 + 0000
+0223 0E0A # LDA R2 with 10
+0224 4180 # MLT
+0225 0A0A # STR R2 to 0xA
+0226 100A # Add 0xA to R0
+0227 1C0C # Sub 12 from R0
+0228 1C0C # Sub 12 from R0
+0229 1C0C # Sub 12 from R0
+022A 1C0C # Sub 12 from R0
+022B 0840 # Store R0 to I1
+022C 2C80 # JMA IXR2
+0230 0C0A # LDA R0 with \n
+0231 C801 # OUT R0
+0232 070E # Load R3 at 0x0E
+0233 3400 # Return
+# Subroutine to print a number
+0240 080F # Save R0 to 0xF
+0241 0B0F # Save R3 to 0xF
+0242 0519 # LDR R1 at 0x19
+0243 1910 # Add 0x10 to R1
+0244 090B # Save R1 to 0xB
+0245 844B # LDR IXR1 at 0xB
+0246 1905 # Add 5 to R1
+0247 1900 # Add 4 to R1
+0248 090B # Save R1 to 0xB
+0249 848B # LDR IXR2 at 0xB
+024A 2080 # JZ R0 IXR2
+024B 0F0A # LDA R3
+024C CB01 # OUT R3
+024D 0F00 # LDA R3
+024E CB01 # OUT R3
+024F 0E0A # LDA R2 with 10
+0250 4480 # DVD R0/R2
+0251 1918 # Add 24 to R1
+0252 1918 # Add 24 to R1
+0253 C921 # OUT R1
+0254 2440 # JNE R0 IXR1
+0255 070F # Load R3 at 0xF
+0256 3400 # Return
+# String of "Plz input"
+0500 0050
+0501 006C
+0502 007A
+0503 0020
+0504 0049
+0505 006E
+0506 0070
+0507 0075
+0508 0074
+0509 000A
+050A 0000
+000A 0000 # var
+000B 0000 # var
+000C 0000 # var
+000D 0000 # var
+000E 0000 # var
+000F 0000 # var
+0010 0500 # pointer to string "Input"
+0011 0600 # pointer to array list of 20 numbers
+0013 0102 # pointer to IO loop
+0014 0015 # loop 20 + 1 times
+0017 0200 # pointer to print input subroutine
+0018 0210 # pointer to read input subroutine
+0019 0240 # pointer to print number subroutine
+001A 0000
+001B 0000
+001C 010E
+001D 011F
+001E 011B
+001F 011A
